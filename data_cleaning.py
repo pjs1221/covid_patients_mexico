@@ -55,6 +55,9 @@ df['date_symptoms'] = df['date_symptoms'].apply(lambda x: datetime.datetime.strp
 df['days_to_entry'] = (df.entry_date-df.date_symptoms)
 df['days_to_entry'] = df['days_to_entry'].apply(lambda x: x.days)
 
+df['deceased'] = df['date_died'].apply(lambda x: 0 if x == '9999-99-99' else 1)
+
+
 #Add Column for Days from First Symptoms to Date Died
 df['date_died'] = df['date_died'].apply(lambda x: None if x == '9999-99-99' else datetime.datetime.strptime(x,"%d-%m-%Y"))
 df['symptoms_to_death'] = (df.date_died-df.date_symptoms)
