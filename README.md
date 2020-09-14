@@ -15,7 +15,7 @@
 
 <strong>Kaggle Dataset</strong>: https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset
 
-<strong>Flask Productionization</strong>: 
+<strong>Flask Productionization</strong>: https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
 
 ## Data Cleaning
 
