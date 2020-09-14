@@ -29,7 +29,12 @@ After acquiring the data, I needed to clean it so that it was usable for the mod
 
 ## Exploratory Data Analysis
 
-![Correlation](https://github.com/pjs1221/covid_patients_mexico/tree/master/EDA%20Images/Correlation.png?raw=true)
+I performed an analysis of the data beforehand. Below are some of the highlights for the EDA. 
+
+![Correlation](EDA%20Images/Correlation.png)
+
+![Age_Deceased_Density](EDA%20Images/Age_Deceased_Density.png)
+
 
 ## Model Building
 
