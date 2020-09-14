@@ -29,6 +29,8 @@ After acquiring the data, I needed to clean it so that it was usable for the mod
 
 ## Exploratory Data Analysis
 
+![alt text](https://github.com/pjs1221/covid_patients_mexico/tree/master/Correlation.png)
+
 ## Model Building
 
 A train-test split was performed on the dataset with a test size of 20%. Furthermore, k-fold cross validation was utilized as a means of estimating the in-sample accuracy with k = 10. 
