@@ -29,7 +29,7 @@ After acquiring the data, I needed to clean it so that it was usable for the mod
 
 ## Exploratory Data Analysis
 
-![alt text](https://github.com/pjs1221/covid_patients_mexico/tree/master/Correlation.png)
+![Correlation](https://github.com/pjs1221/covid_patients_mexico/tree/master/EDA%20Images/Correlation.png?raw=true)
 
 ## Model Building
 
