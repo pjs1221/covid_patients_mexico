@@ -31,7 +31,7 @@ pd.to_numeric(df.renal_chronic)
 pd.to_numeric(df.tobacco)
 pd.to_numeric(df.covid_res)
 
-#Delete Unknown For Preconditions(represented by 97,98,99)
+#Delete Unknowns For Preconditions(represented by 97,98,99)
 for i in range(97,100):
     df = df[df.sex != i]
     df = df[df.patient_type != i]
@@ -47,18 +47,20 @@ for i in range(97,100):
     df = df[df.renal_chronic != i]
     df = df[df.tobacco != i]
     df = df[df.covid_res != i]
+df = df[df.covid_res != 3]
 
-
-#Add Column for Days from First Symptoms to Days to Entry
+#Add Column for Date of First Symptoms to Date of Entry
 df['entry_date'] = df['entry_date'].apply(lambda x: datetime.datetime.strptime(x,"%d-%m-%Y"))
 df['date_symptoms'] = df['date_symptoms'].apply(lambda x: datetime.datetime.strptime(x,"%d-%m-%Y"))
 df['days_to_entry'] = (df.entry_date-df.date_symptoms)
 df['days_to_entry'] = df['days_to_entry'].apply(lambda x: x.days)
 
+
+#Add column to check if patient is Deceased
 df['deceased'] = df['date_died'].apply(lambda x: 0 if x == '9999-99-99' else 1)
 
 
-#Add Column for Days from First Symptoms to Date Died
+#Add column for Days from First Symptoms to Date Died
 df['date_died'] = df['date_died'].apply(lambda x: None if x == '9999-99-99' else datetime.datetime.strptime(x,"%d-%m-%Y"))
 df['symptoms_to_death'] = (df.date_died-df.date_symptoms)
 df['symptoms_to_death'] = df['symptoms_to_death'].apply(lambda x: x.days)
@@ -80,6 +82,8 @@ df['renal_chronic'] = df['renal_chronic'].apply(lambda x: 0 if x == 2 else 1)
 df['tobacco'] = df['tobacco'].apply(lambda x: 0 if x == 2 else 1)
 df['covid_res'] = df['covid_res'].apply(lambda x: 0 if x == 2 else 1)
 
-
+#Remove transformed columns
 df_out = df.drop(columns=[ 'entry_date','date_symptoms','date_died'])
+
+#Output cleaned data to new csv
 df_out.to_csv('covid_data_cleaned.csv',index = False)
